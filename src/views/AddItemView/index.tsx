@@ -1,7 +1,7 @@
 
 const AddItemView = () => {
   return (
-    <div> </div>
+    <div>AddItemView </div>
   )
 }
 
