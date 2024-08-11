@@ -1,6 +1,10 @@
-const InputField = () => {
+interface InputFieldProps{
+  inputValue?:string;
+}
+
+const InputField = ({inputValue} : InputFieldProps) => {
   return (
-    <div>InputField</div>
+    <input type="text" />
   )
 }
 
