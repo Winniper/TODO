@@ -1,8 +1,20 @@
 import React from 'react'
+import CustomButton from '../../components/base/CustomButton'
+import CheckBox from '../../components/base/Checkbox'
 
-const ListItemView = () => {
+interface listViewProps {
+  task : string;
+}
+
+const ListItemView = ({task}:listViewProps) => {
   return (
-    <div>ListItemView</div>
+    <div className='flex items-center justify-between'>
+      <div className='flex items-center'>
+        <CheckBox/>
+        <span className='m-1'>{task}</span>
+      </div>
+      <CustomButton variant='delete'>Delete</CustomButton>
+    </div>
   )
 }
 

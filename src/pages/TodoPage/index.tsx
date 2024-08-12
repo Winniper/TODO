@@ -1,7 +1,10 @@
+import TodoListContainer from "../../containers/TodoListContainer"
 
 const TodoPage = () => {
   return (
-    <div>TodoPage</div>
+    <div className="bg-[#211D21] flex items-center justify-center h-screen">
+      <TodoListContainer/>
+    </div>
   )
 }
 

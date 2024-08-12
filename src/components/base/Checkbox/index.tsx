@@ -1,8 +1,13 @@
 import React from 'react'
 
-const CheckBox = () => {
+interface CheckBoxProps extends React.HTMLAttributes<HTMLInputElement>{
+  isChecked : boolean;
+  onClick: () => void;
+}
+
+const CheckBox = ({isChecked , onClick} : CheckBoxProps) => {
   return (
-    <div>CheckBox</div>
+    <input type="checkbox" checked={isChecked} onClick={onClick} className="w-4 h-4 accent-[#E31C25] m-2"/>
   )
 }
 

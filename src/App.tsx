@@ -1,10 +1,10 @@
-import CustomButton from './components/base/CustomButton'
+import TodoPage from './pages/TodoPage'
 
 function App() {
 
   return (
     <>
-      <CustomButton variant='add'> Add Task </CustomButton>
+      <TodoPage/>
     </>
   )
 }
