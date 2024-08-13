@@ -4,13 +4,14 @@ import InputField from "../../components/base/InputField"
 interface addItemViewProps {
   inputValue : string;
   onChange: () => void;
+  onClick: () => void;
 }
 
-const AddItemView = ({inputValue , onChange}:addItemViewProps) => {
+const AddItemView = ({inputValue , onChange, onClick}:addItemViewProps) => {
   return (
     <div className="flex justify-evenly py-2">
       <InputField inputValue={inputValue} onChange={onChange} />
-      <CustomButton variant="add">Add Task</CustomButton>
+      <CustomButton variant="add" onClick={onClick}>Add Task</CustomButton>
     </div>
   )
 }
