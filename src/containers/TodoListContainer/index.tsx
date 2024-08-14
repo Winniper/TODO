@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import AddItemView from '../../views/AddItemView'
-import ListItemView from '../../views/ListItemView'
-import { TodoListContext } from '../../context/TodolistContext.ts/index.ts'
+import TodoView from '../../views/TodoView'
+
 
 const TodoListContainer = () => {
   const [inputValue, setInputValue] = useState('')
@@ -37,16 +36,7 @@ const TodoListContainer = () => {
 
 
   return (
-    <TodoListContext.Provider value={todoList}>
-      <div className='bg-[#DFE2DB] w-2/5 p-4 rounded-md min-h-fit'>
-        <span className='font-bold text-5xl '><span className='text-[#E31C25]'>TO</span>DO</span>
-        <AddItemView inputValue={inputValue} onChange={handleChange} onClick={handleClick} />
-        <hr className='m-2 bg-[#161616] h-0.5' />
-        {todoList.map((item) => {
-          return <ListItemView task={item.task} onClick={deleteFunction} id={item.id}/>
-        })}
-      </div>
-    </TodoListContext.Provider>
+      <TodoView inputValue={inputValue} handleChange={handleChange} handleClick={handleClick} todoList={todoList} deleteFunction={deleteFunction} />
   )
 }
 

@@ -2,8 +2,6 @@ import React from 'react'
 import CustomButton from '../../components/base/CustomButton'
 import CheckBox from '../../components/base/Checkbox'
 
-
-
 interface listViewProps {
   id: number;
   task : string;
