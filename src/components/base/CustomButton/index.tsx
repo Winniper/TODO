@@ -1,8 +1,9 @@
 import { cva } from "class-variance-authority";
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface customButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
-  variant : 'add' | 'delete',
+  variant : 'add' | 'delete';
+  children : ReactNode;
 }
 
 const buttonVariants = cva("rounded-full p-2 px-5 hover:opacity-85",{
@@ -14,9 +15,9 @@ const buttonVariants = cva("rounded-full p-2 px-5 hover:opacity-85",{
   }
 })
 
-const CustomButton = ({variant, ...props} : customButtonProps) => {
+const CustomButton = ({children, variant, ...props} : customButtonProps) => {
   return (
-    <button {...props} className={buttonVariants({variant})}></button>
+    <button {...props} className={buttonVariants({variant})}>{children}</button>
   )
 }
 

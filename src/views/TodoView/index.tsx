@@ -1,6 +1,11 @@
-import { Todo } from "../../types/TodoType";
 import AddItemView from "../AddItemView"
 import ListItemView from "../ListItemView"
+
+export interface Todo {
+  id : number;
+  task: string;
+  checked: boolean;
+}
 
 interface todoViewProps {
   inputValue : string;
