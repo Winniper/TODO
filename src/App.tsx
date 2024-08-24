@@ -1,11 +1,10 @@
-import TodoPage from './pages/TodoPage'
-
+import AppRouter from "./routes/AppRouter"
 
 function App() {
 
   return (
     <>
-      <TodoPage/>
+      <AppRouter />
     </>
   )
 }

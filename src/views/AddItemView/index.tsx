@@ -10,7 +10,7 @@ interface addItemViewProps {
 const AddItemView = ({inputValue , onChange, onClick}:addItemViewProps) => {
   return (
     <div className="flex justify-evenly py-2">
-      <InputField inputValue={inputValue} onChange={onChange} />
+      <InputField type="text" placeholder="Add Task" inputValue={inputValue} onChange={onChange} />
       <CustomButton variant="add" onClick={onClick}>Add Task</CustomButton>
     </div>
   )

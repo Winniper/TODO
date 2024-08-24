@@ -6,7 +6,7 @@ const TodoListContainer = () => {
   const [inputValue, setInputValue] = useState('')
   const [todoList , setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [])
 
-  const handleChange = (event : any) => {
+  const handleChange = (event :React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
   }
 
