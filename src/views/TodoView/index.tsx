@@ -1,5 +1,6 @@
 import AddItemView from "../AddItemView"
 import ListItemView from "../ListItemView"
+import HeadingView from "../HeadingView";
 
 export interface Todo {
   id : number;
@@ -13,12 +14,13 @@ interface todoViewProps {
   handleClick : () => void;
   todoList: Todo[];
   deleteFunction : () => void;
+  handleNavigate : () => void;
 }
 
-const TodoView = ({inputValue , handleChange, handleClick, todoList, deleteFunction}: todoViewProps) => {
+const TodoView = ({inputValue , handleChange, handleClick, todoList, deleteFunction, handleNavigate}: todoViewProps) => {
   return (
     <div className='bg-[#DFE2DB] w-2/5 p-4 rounded-md min-h-fit'>
-      <span className='font-bold text-5xl '><span className='text-[#E31C25]'>TO</span>DO</span>
+      <HeadingView handleNavigate={handleNavigate}/>
       <AddItemView inputValue={inputValue} onChange={handleChange} onClick={handleClick} />
       <hr className='m-2 bg-[#161616] h-0.5' />
       {todoList.map((item) => {

@@ -1,11 +1,13 @@
 import { useState } from "react"
 import SignUpView from "../../views/SignUpView"
-import { signUp } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext"
+
 
 
 const SignUpContainer = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState(""); 
+    const {signUp} = useAuth()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("");
 
     const handleEmail = (event : React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)

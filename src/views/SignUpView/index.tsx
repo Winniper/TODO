@@ -16,6 +16,7 @@ const SignUpView = ({email, password, handleEmail, handlePassword, onClick} : Si
         <InputField type="text" placeholder="Email" inputValue={email} onChange={handleEmail}/>
         <InputField type="password" placeholder="Password" inputValue={password} onChange={handlePassword}/>
         <CustomButton variant="add" onClick={onClick}>SignUp</CustomButton>
+        <span>already have an account? <a href="/login" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">LogIn</a></span>
     </div>
   )
 }
