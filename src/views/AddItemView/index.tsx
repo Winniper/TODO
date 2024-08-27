@@ -4,7 +4,7 @@ import InputField from "../../components/base/InputField"
 interface addItemViewProps {
   inputValue : string;
   onChange: () => void;
-  onClick: () => void;
+  onClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const AddItemView = ({inputValue , onChange, onClick}:addItemViewProps) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import TodoView from '../../views/TodoView'
+import TodoView, { Todo } from '../../views/TodoView'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -18,17 +18,28 @@ const TodoListContainer = () => {
     const newTodo = {
       id : Date.now(),
       task: inputValue,
-      isCompeleted: false,
+      checked: false,
     }
 
-    setTodoList((prev) => [...prev, newTodo])
+    setTodoList((prev : Todo[]) => [...prev, newTodo])
 
     setInputValue("")
   }
 
-  const deleteFunction = (id) => {
-    setTodoList((prevTodos) => {
+  const deleteFunction = (id:number) => {
+    setTodoList((prevTodos : Todo[]) => {
       return prevTodos.filter((todo) => todo.id !== id)
+    })
+  }
+
+  const handleTick = (id : number) => {
+    setTodoList((prevTodos : Todo[]) => {
+      return prevTodos.map((todo) => {
+        if (todo.id === id){
+          return {...todo, checked: !todo.checked }
+        }
+        return todo
+      })
     })
   }
 
@@ -42,7 +53,7 @@ const TodoListContainer = () => {
 
 
   return (
-      <TodoView inputValue={inputValue} handleChange={handleChange} handleClick={handleClick} todoList={todoList} deleteFunction={deleteFunction}  handleNavigate={handleNavigate}/>
+      <TodoView inputValue={inputValue} handleChange={handleChange} handleClick={handleClick} todoList={todoList} deleteFunction={deleteFunction} handleTick={handleTick} handleNavigate={handleNavigate}/>
   )
 }
 
