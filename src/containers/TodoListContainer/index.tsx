@@ -53,7 +53,14 @@ const TodoListContainer = () => {
 
 
   return (
-      <TodoView inputValue={inputValue} handleChange={handleChange} handleClick={handleClick} todoList={todoList} deleteFunction={deleteFunction} handleTick={handleTick} handleNavigate={handleNavigate}/>
+      <TodoView 
+      inputValue={inputValue} 
+      handleChange={handleChange} 
+      handleClick={handleClick} 
+      todoList={todoList} 
+      deleteFunction={deleteFunction} 
+      handleTick={handleTick} 
+      handleNavigate={handleNavigate}/>
   )
 }
 

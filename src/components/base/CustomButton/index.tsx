@@ -1,9 +1,11 @@
 import { cva } from "class-variance-authority";
 import React, { ReactNode } from "react";
+import clsx from 'clsx'
 
 interface customButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
   variant : 'add' | 'delete';
   children : ReactNode;
+  className? : string;
 }
 
 const buttonVariants = cva("rounded-full p-2 px-5 hover:opacity-85",{
@@ -15,9 +17,9 @@ const buttonVariants = cva("rounded-full p-2 px-5 hover:opacity-85",{
   }
 })
 
-const CustomButton = ({children, variant, ...props} : customButtonProps) => {
+const CustomButton = ({children, variant, className, ...props} : customButtonProps) => {
   return (
-    <button {...props} className={buttonVariants({variant})}>{children}</button>
+    <button {...props} className={clsx(buttonVariants({variant}), className)}>{children}</button>
   )
 }
 
