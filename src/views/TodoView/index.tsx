@@ -10,22 +10,22 @@ export interface Todo {
 
 interface todoViewProps {
   inputValue : string;
-  handleChange : () => void;
+  handleChange : (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleClick : () => void;
   todoList: Todo[];
-  deleteFunction : () => void;
+  deleteFunction : (id : number) => void;
   handleNavigate : () => void;
   handleTick : (id : number) => void;
 }
 
 const TodoView = ({inputValue , handleChange, handleClick, todoList, deleteFunction, handleNavigate, handleTick}: todoViewProps) => {
   return (
-    <div className='bg-[#DFE2DB] w-2/5 p-4 rounded-md min-h-fit'>
+    <div data-testid="todo" className='bg-[#DFE2DB] w-2/5 p-4 rounded-md min-h-fit'>
       <HeadingView handleNavigate={handleNavigate}/>
       <AddItemView inputValue={inputValue} onChange={handleChange} onClick={handleClick} />
       <hr className='m-2 bg-[#161616] h-0.5' />
-      {todoList.map((item) => {
-          return <ListItemView task={item.task} onClick={deleteFunction} id={item.id} checked={item.checked} handleTick={handleTick}/>
+      {todoList.map((item, index) => {
+          return <ListItemView key={index} task={item.task} onClick={deleteFunction} id={item.id} checked={item.checked} handleTick={handleTick}/>
       })}
     </div>
   )

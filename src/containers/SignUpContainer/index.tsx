@@ -2,8 +2,6 @@ import { useState } from "react"
 import SignUpView from "../../views/SignUpView"
 import { useAuth } from "../../contexts/AuthContext"
 
-
-
 const SignUpContainer = () => {
     const {signUp} = useAuth()
     const [email, setEmail] = useState("")

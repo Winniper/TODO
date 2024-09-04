@@ -20,9 +20,14 @@ interface AuthProviderProps {
     children : ReactNode
 }
 
+interface jwtPayload {
+    user_id: string;
+    email: string;
+}
+
 export const AuthContext = createContext<AuthContextType | null>(null);
 
-const apiKey = import.meta.env.VITE_API_KEY
+const apiKey = "AIzaSyC7iIIKAOjsxSYB0lPgrIH04aUtNK836os"
 
 const AuthProvider = ({children} : AuthProviderProps) => {
     const [user , setUser] = useState<User | null>(null)
@@ -37,7 +42,7 @@ const AuthProvider = ({children} : AuthProviderProps) => {
             })    
 
             const { idToken } = response.data
-            const decodedToken = jwtDecode(idToken)
+            const decodedToken : jwtPayload = jwtDecode(idToken)
             const uid = decodedToken.user_id
             
             Cookies.set('access_token',idToken)
@@ -57,7 +62,7 @@ const AuthProvider = ({children} : AuthProviderProps) => {
             })
 
             const {idToken} = response.data
-            const decodedToken = jwtDecode(idToken)
+            const decodedToken : jwtPayload = jwtDecode(idToken)
             const uid = decodedToken.user_id
             
             Cookies.set("access_token",idToken)
@@ -82,7 +87,7 @@ const AuthProvider = ({children} : AuthProviderProps) => {
 
         if (token){
             try {
-                const decodedToken = jwtDecode(token)
+                const decodedToken : jwtPayload = jwtDecode(token)
                 const uid = decodedToken.user_id
                 const email = decodedToken.email
                 setUser({email,uid})   

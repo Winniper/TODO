@@ -4,7 +4,7 @@ interface InputFieldProps extends React.HTMLAttributes<HTMLInputElement>{
   placeholder : string;
   inputValue:string;
   type: string;
-  onChange : () => void;
+  onChange : (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputField = ({placeholder, inputValue, onChange, type} : InputFieldProps) => {
