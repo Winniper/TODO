@@ -4,8 +4,8 @@ import CustomButton from "../../components/base/CustomButton"
 interface logInViewProps {
     email : string;
     password : string;
-    handleEmail : () => void; 
-    handlePassword : () => void;
+    handleEmail : (event: React.ChangeEvent<HTMLInputElement>) => void; 
+    handlePassword : (event: React.ChangeEvent<HTMLInputElement>) => void;
     onClick : () => void;
 }
 
